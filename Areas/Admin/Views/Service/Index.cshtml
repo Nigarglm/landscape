@@ -1,0 +1,43 @@
+﻿
+@model List<Service>
+
+    @{
+        int count = 0;
+    }
+            <div class="col-lg-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Services Table</h4>
+                  <p class="card-description">
+                    <a class="btn btn-success" asp-action="create" asp-controller="service">Create</a>
+                  </p>
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>Image</th>
+                          <th>Name</th>
+                          <th>Settings</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @foreach (Service services in Model)
+                            {
+                                count++;
+                                <tr>
+                          <td>@count</td>
+                          <td><img src="~/img/services/@services.ImageUrl" /></td>
+                          <td>@services.Name</td>
+                          <td>
+                              <a class="btn btn-warning btn-info" asp-action="update" asp-controller="service" asp-route-id="@services.Id">Update</a>
+                              <a class="btn btn-success btn-info" asp-action="detail" asp-controller="service" asp-route-id="@services.Id">Detail</a>
+                              <a class="btn btn-danger btn-info" asp-action="delete" asp-controller="service" asp-route-id="@services.Id">Delete</a>
+                          </td>
+                        </tr>
+                            }
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>

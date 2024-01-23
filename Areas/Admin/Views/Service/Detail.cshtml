@@ -1,0 +1,13 @@
+﻿
+@model List<Service>
+
+@foreach(Service services in Model)
+{
+    <div class="card" style="width: 18rem;">
+  <img src="~/img/services/@services.ImageUrl" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">@services.Name</h5>
+    <p class="card-text">@services.Description</p>
+  </div>
+</div>
+}
